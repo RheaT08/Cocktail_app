@@ -3,31 +3,43 @@ package com.example.cocktail_app
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(var dataSet: List<String>):
-    RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private val cocktailDataset: List<String>): RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        val name_textview: TextView = view.findViewById(R.id.name_textview)
+        val instruction_textview: TextView = view.findViewById(R.id.instruction_textview)
+
+        init {
+            // Define click listener for the ViewHolder's View.
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.cocktail_card, parent, false)
+    // Create new views (invoked by the layout manager)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+
+        // Create a new view, which defines the UI of the list item
+        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.cocktail_card, viewGroup, false) as View
 
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    // Replace the contents of a view (invoked by the layout manager)
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        val cocktail = dataSet[position]
-
-
+        //cocktail_names
+        viewHolder.name_textview.text = cocktailDataset[position]
+       //viewHolder.instruction_textview.text = cocktailDataset[position].instructions
     }
 
-override fun getItemCount(): Int {
-        return dataSet.size
-    }
+    // Return the size of your dataset (invoked by the layout manager)
+    override fun getItemCount() = cocktailDataset.size
+
+
+
 }

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_library"
-        android:name="com.example.cocktail_app.Library"
+        android:name="com.example.cocktail_app.ui.Library"
         android:label="Cocktails"
         tools:layout="@layout/fragment_library" />
 
