@@ -12,9 +12,6 @@ import kotlinx.android.synthetic.main.fragment_library.*
 class Library : Fragment() {
     var myAdapter: MyAdapter? = null
 
-    companion object {
-        fun newInstance() = Library()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
