@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_random">
+
+    <fragment
+        android:id="@+id/navigation_random"
+        android:name="com.example.cocktail_app.Random"
+        android:label="Drink Generator"
+        tools:layout="@layout/fragment_random" />
+
+    <fragment
+        android:id="@+id/navigation_library"
+        android:name="com.example.cocktail_app.Library"
+        android:label="Cocktails"
+        tools:layout="@layout/fragment_library" />
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.example.cocktail_app.Favorites"
+        android:label="My Drinks"
+        tools:layout="@layout/fragment_favorites" />
+</navigation>

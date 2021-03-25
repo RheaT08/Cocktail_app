@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_random"
+        android:icon="@drawable/dices"
+        android:title="Generator" />
+
+    <item
+        android:id="@+id/navigation_library"
+        android:icon="@drawable/martini"
+        android:title="Cocktails" />
+
+    <item
+        android:id="@+id/navigation_favorites"
+        android:icon="@drawable/heart"
+        android:title="Favorites" />
+
+</menu>
