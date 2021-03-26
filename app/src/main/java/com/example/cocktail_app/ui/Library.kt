@@ -4,29 +4,28 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.cocktail_app.Cocktail
 import com.example.cocktail_app.MyAdapter
 import com.example.cocktail_app.R
 import kotlinx.android.synthetic.main.fragment_library.*
-import java.lang.reflect.Type
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.android.volley.Request
 
 
 class Library : Fragment() {
+
+    private lateinit var cocktails: List<Cocktail>
 
     //Adapter, and greier for display av info om boligene. Håndtering av RecyclerView layouten
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var cocktailAdapter: MyAdapter
 
     //MainViewModel
     private lateinit var libraryViewModel : LibraryMainViewModel
@@ -47,7 +46,7 @@ class Library : Fragment() {
     //LIM INN LIST OF COCKTAILS I LINJE 31
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        displayCocktails()
+        //displayCocktails()
         getAllCocktails()
     }
 
@@ -57,36 +56,29 @@ class Library : Fragment() {
 
     private fun getAllCocktails(){
 
+            libraryViewModel.getCocktailsAPI(
+                Volley.newRequestQueue(context),
 
-        //Instantiate the RequestQueue
-        val queue = Volley.newRequestQueue(context)
-        val urlCocktail = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s"
-
-        //Request a string response from the provided URL of messages
-        val stringRequest = StringRequest( Request.Method.GET, urlCocktail,
-
-            { response ->
-
-                val listType: Type = object : TypeToken<List<Cocktail?>?>() {}.type    //henter ut Message object fra API.
-                val cocktail_listen = Gson().fromJson<List<Cocktail>>(response, listType)
-
-                //displayCocktails(cocktail_listen)
-
-            },
-            {
-                //Hva skjer ved feil, skrives her
-            })
-        queue.add(stringRequest)
+                    //IF Kall is successfull, get Cocktails.
+                { getCocktails ->
+                    displayCocktails(getCocktails.cocktailList)
+                    //cocktailAdapter.updateData(getCocktails)
+                    //scrollToBottom()
+                },
+                {
+                   //Noe gikk galt...
+                }
+            )
 
     }
 
 
 
-    private fun displayCocktails(/*cocktails: List<Cocktail>*/){
+    private fun displayCocktails(cocktails: List<Cocktail>){
 
         val cocktailsList = listOf<String>("Martini","Gintonic","asd","asd","liuasd","lasduo","lol")
         viewManager = LinearLayoutManager(requireContext())
-        viewAdapter = MyAdapter(cocktailsList)  //oppretter en objekt av MyAdapter klassen min. Parameter en mutablelist.
+        viewAdapter = MyAdapter(cocktails)  //oppretter en objekt av MyAdapter klassen min. Parameter en mutablelist.
 
 
         recyclerView = cocktail_recyclerview.apply {
@@ -103,6 +95,8 @@ class Library : Fragment() {
         }
     }
 
-    //todo: 1) Adapter 2) Recyclerview 3) Hent in API after its all clear.
+    //TODO: Adapter - FINISH
+    //TODO: Recyclerview - FINISH
+    //TODO: Hent in API after its all clear & Display on Recyclerview
 
 }

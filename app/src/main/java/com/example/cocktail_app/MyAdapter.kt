@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(private val cocktailDataset: List<String>): RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private var cocktailDataset: List<Cocktail>): RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
 
 
@@ -33,13 +33,18 @@ class MyAdapter(private val cocktailDataset: List<String>): RecyclerView.Adapter
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         //cocktail_names
-        viewHolder.name_textview.text = cocktailDataset[position]
+        viewHolder.name_textview.text = cocktailDataset[position].strDrink
+        viewHolder.instruction_textview.text = cocktailDataset[position].strInstructions
        //viewHolder.instruction_textview.text = cocktailDataset[position].instructions
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = cocktailDataset.size
 
+    fun updateData(newData: List<Cocktail>) {
+        cocktailDataset = newData
+        notifyDataSetChanged()
+    }
 
 
 }

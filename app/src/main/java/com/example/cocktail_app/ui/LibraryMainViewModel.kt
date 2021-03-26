@@ -1,38 +1,41 @@
 package com.example.cocktail_app.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.cocktail_app.Cocktail
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
+import com.example.cocktail_app.Cocktail
+import com.example.cocktail_app.Drinks
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import org.json.JSONObject
 import java.lang.reflect.Type
 
 class LibraryMainViewModel :  ViewModel() {
 
 
     fun getCocktailsAPI(
-        queue: RequestQueue,
-        successCallback: (List<Cocktail>) -> Unit,
-        errorCallback: () -> Unit,
+            queue: RequestQueue,
+            successCallback: (Drinks) -> Unit,
+            errorCallback: () -> Unit,
     ) {
-        val url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+        val url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s"
 
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(
-            Request.Method.GET,
-            url,
-            { response ->
-                val listType: Type = object : TypeToken<List<Cocktail?>?>() {}.type
-                val chatMessages = Gson().fromJson<List<Cocktail>>(response, listType)
+                Request.Method.GET,
+                url,
+                { response ->
+                    //val listType: Type = object : TypeToken<ArrayList<Cocktail?>?>() {}.type
+                    //val cocktailListen = Gson().fromJson<ArrayList<Cocktail>>(response, listType)
 
-                successCallback(chatMessages)
-            },
-            {
-                errorCallback()
-            }
+                    val drinks: Drinks = Gson().fromJson(response,Drinks::class.java)
+
+                    successCallback(drinks)   //sender success-svar dersom kallet blir en suksess.
+
+                },
+                {
+                    errorCallback()
+                }
         )
 
         // Add the request to the RequestQueue.
@@ -40,3 +43,7 @@ class LibraryMainViewModel :  ViewModel() {
     }
 
 }
+
+//TODO: Når jeg henter inn JSON og legger info til som objekter, jeg skal ikke ha alt fra API?
+//så hvordan tar jeg stringene jeg vil fra API-et og sette de som verdi i Cocktail-klassen min? Lager cocktail objeketene mine.
+//Hvordan etterlater jeg alt annet info som API gir? jeg ikke trenger?
