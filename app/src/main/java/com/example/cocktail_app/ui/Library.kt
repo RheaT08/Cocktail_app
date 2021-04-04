@@ -97,6 +97,6 @@ class Library : Fragment() {
 
     //TODO: Adapter - FINISH
     //TODO: Recyclerview - FINISH
-    //TODO: Hent in API after its all clear & Display on Recyclerview
+    //TODO: Hent in API after its all clear & Display on Recyclerview - FINISH
 
 }

@@ -44,6 +44,6 @@ class LibraryMainViewModel :  ViewModel() {
 
 }
 
-//TODO: Når jeg henter inn JSON og legger info til som objekter, jeg skal ikke ha alt fra API?
+
 //så hvordan tar jeg stringene jeg vil fra API-et og sette de som verdi i Cocktail-klassen min? Lager cocktail objeketene mine.
 //Hvordan etterlater jeg alt annet info som API gir? jeg ikke trenger?
