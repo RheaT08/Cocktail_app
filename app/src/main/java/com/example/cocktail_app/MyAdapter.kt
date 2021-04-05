@@ -23,7 +23,7 @@ class MyAdapter(private val libContext: Context, private var cocktailDataset: Li
         val instruction_textview: TextView = view.findViewById(R.id.instruction_textview)
         val ingrediens_textview: TextView = view.findViewById(R.id.ingrediens_textview)
         val heartIcon_imageView: ImageView = view.findViewById(R.id.outlinedHeart_imageView)
-        val imageCocktail : ImageView = view.findViewById(R.id.cocktail_Imageview)
+        val imageCocktail : ImageView = view.findViewById(R.id.cocktail_ImageView)
 
         init {
             // Define click listener for the ViewHolder's View.
@@ -50,6 +50,7 @@ class MyAdapter(private val libContext: Context, private var cocktailDataset: Li
         viewHolder.ingrediens_textview.text = "${"Ingredients: "}" + "${cocktailDataset[position].getIngredients().toString()}"
         viewHolder.instruction_textview.text = cocktailDataset[position].strInstructions
         val imageUri = cocktailDataset[position].strDrinkThumb
+
         Picasso.with(libContext).load(imageUri).into(viewHolder.imageCocktail)
 
         //viewHolder.imageCocktail.setImageURI()

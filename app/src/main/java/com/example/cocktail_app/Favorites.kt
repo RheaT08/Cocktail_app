@@ -45,7 +45,7 @@ class Favorites : Fragment() {
 
     private fun displayCocktail(myDrinks: List<Cocktail>) {
         viewManager = LinearLayoutManager(requireContext())
-        viewAdapter = MyAdapter(myDrinks)
+        viewAdapter = MyAdapter(requireContext(), myDrinks)
         recyclerView = favorites_recyclerview.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
