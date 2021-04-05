@@ -1,6 +1,5 @@
 package com.example.cocktail_app
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,6 +35,8 @@ class Favorites : Fragment() {
         return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
 
+
+    //LIM INN LIST OF COCKTAILS I LINJE 31
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         displayCocktail(MainActivity.favoriteDrinks)

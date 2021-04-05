@@ -42,6 +42,34 @@ class LibraryMainViewModel :  ViewModel() {
         queue.add(stringRequest)
     }
 
+
+    fun getRandomCocktail(
+            queue: RequestQueue,
+            successCallback: (Drinks) -> Unit,
+            errorCallback: () -> Unit,
+    ) {
+        val url = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(
+                Request.Method.GET,
+                url,
+                { response ->
+
+                    val drink: Drinks = Gson().fromJson(response,Drinks::class.java)
+                    successCallback(drink)   //sender success-svar dersom kallet blir en suksess.
+
+                },
+                {
+                    errorCallback()
+                }
+        )
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
+    }
+
+
 }
 
 

@@ -20,7 +20,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/cocktail_Imageview"
+            android:id="@+id/cocktail_ImageView"
             android:layout_width="91dp"
             android:layout_height="107dp"
             android:layout_weight="1"
@@ -40,7 +40,7 @@
             android:fontFamily="sans-serif-black"
             card_view:layout_constraintBottom_toTopOf="@+id/linearLayout"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/cocktail_Imageview"
+            card_view:layout_constraintStart_toEndOf="@+id/cocktail_ImageView"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -58,7 +58,7 @@
             android:orientation="vertical"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/cocktail_Imageview"
+            card_view:layout_constraintStart_toEndOf="@+id/cocktail_ImageView"
             card_view:layout_constraintTop_toTopOf="parent">
 
             <TextView
