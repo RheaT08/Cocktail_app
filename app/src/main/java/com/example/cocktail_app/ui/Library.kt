@@ -62,8 +62,6 @@ class Library : Fragment() {
                     //IF Kall is successfull, get Cocktails.
                 { getCocktails ->
                     displayCocktails(getCocktails.cocktailList)
-                    //cocktailAdapter.updateData(getCocktails)
-                    //scrollToBottom()
                 },
                 {
                    //Noe gikk galt...
@@ -94,9 +92,5 @@ class Library : Fragment() {
             cocktail_recyclerview.adapter = viewAdapter
         }
     }
-
-    //TODO: Adapter - FINISH
-    //TODO: Recyclerview - FINISH
-    //TODO: Hent in API after its all clear & Display on Recyclerview - FINISH
 
 }
