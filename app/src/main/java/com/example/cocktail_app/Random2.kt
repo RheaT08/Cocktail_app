@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.android.volley.toolbox.Volley
 import com.example.cocktail_app.ui.LibraryMainViewModel
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_random2.*
 import kotlinx.android.synthetic.main.cocktail_card.*
 
@@ -45,13 +46,14 @@ class Random2 : AppCompatActivity() {
         )
     }
 
+
     private fun display(cocktail: List<Cocktail>){
 
         cocktail_textView.text = cocktail[0].strDrink
         ingredienser_textview.text = cocktail[0].getIngredients().toString()
         instruks_textview.text = cocktail[0].strInstructions
 
+        val imageUri = cocktail[0].strDrinkThumb
+        Picasso.with(this).load(imageUri).into(cocktail_imageView)
     }
-
-
 }
