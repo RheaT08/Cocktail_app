@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley
 import com.example.cocktail_app.Cocktail
 import com.example.cocktail_app.MyAdapter
 import com.example.cocktail_app.R
+import kotlinx.android.synthetic.main.cocktail_card.*
 import kotlinx.android.synthetic.main.fragment_library.*
 
 
@@ -68,6 +69,13 @@ class Library : Fragment() {
             // specify an viewAdapter (see also next example)
             //adapter = viewAdapter
             cocktail_recyclerview.adapter = viewAdapter
+        }
+    }
+
+
+    private fun setFavorite(){
+        outlinedHeart_imageView.setOnClickListener{
+
         }
     }
 }

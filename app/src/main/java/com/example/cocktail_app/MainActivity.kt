@@ -10,6 +10,12 @@ import androidx.navigation.ui.setupWithNavController
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        val favoriteID = mutableListOf<String>()
+        val favoriteDrinks = mutableListOf<Cocktail>()
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

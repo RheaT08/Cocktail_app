@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class MyAdapter(private var cocktailDataset: List<Cocktail>): RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
@@ -20,6 +21,7 @@ class MyAdapter(private var cocktailDataset: List<Cocktail>): RecyclerView.Adapt
         val name_textview: TextView = view.findViewById(R.id.name_textview)
         val instruction_textview: TextView = view.findViewById(R.id.instruction_textview)
         val ingrediens_textview: TextView = view.findViewById(R.id.ingrediens_textview)
+        val heartIcon_imageView: ImageView = view.findViewById(R.id.outlinedHeart_imageView)
         val imageCocktail : ImageView = view.findViewById(R.id.cocktail_Imageview)
 
         init {
@@ -41,13 +43,21 @@ class MyAdapter(private var cocktailDataset: List<Cocktail>): RecyclerView.Adapt
 
         //TODO: Drinkname, ingrediens + measurements, instructions, picture.
 
+
         //cocktail_names
         viewHolder.name_textview.text = cocktailDataset[position].strDrink
-        viewHolder.ingrediens_textview.text = cocktailDataset[position].getIngredients().toString()
+        viewHolder.ingrediens_textview.text = "${"Ingredients: "}" + "${cocktailDataset[position].getIngredients().toString()}"
         viewHolder.instruction_textview.text = cocktailDataset[position].strInstructions
         //viewHolder.imageCocktail.setImageURI()
         //cocktailDataset[position].strDrinkThumb
         //viewHolder.instruction_textview.text = cocktailDataset[position].instructions
+
+        viewHolder.heartIcon_imageView.setOnClickListener {
+            var favorite = cocktailDataset[position]
+            MainActivity.favoriteDrinks.add(favorite)
+            viewHolder.heartIcon_imageView.setBackgroundResource(R.drawable.favorite)
+        }
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

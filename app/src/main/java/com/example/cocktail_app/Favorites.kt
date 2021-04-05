@@ -6,15 +6,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.toolbox.Volley
 import com.example.cocktail_app.ui.LibraryMainViewModel
+import kotlinx.android.synthetic.main.cocktail_card.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
+import kotlinx.android.synthetic.main.fragment_library.*
 
 
 class Favorites : Fragment() {
-    var myAdapter: MyAdapter? = null
-    val myDrinks = listOf<Cocktail>()
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var libraryViewModel: LibraryMainViewModel
+    private val model: LibraryMainViewModel by activityViewModels()
+
+
 
 
     companion object {
@@ -25,31 +35,38 @@ class Favorites : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        favoritesViewModel = ViewModelProvider(this).get(LibraryMainViewModel::class.java)
+        libraryViewModel = ViewModelProvider(this).get(LibraryMainViewModel::class.java)
         return inflater.inflate(R.layout.fragment_favorites, container, false)
+
+
     }
 
-
-    //LIM INN LIST OF COCKTAILS I LINJE 31
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        myAdapter = MyAdapter(listOf())
-        favorites_recyclerview.adapter = myAdapter
-        favorites_recyclerview.layoutManager = LinearLayoutManager(activity)
+        getLibraryCocktails()
     }
 
-/*
-    override fun onResume() {
-        super.onResume()
-        updateList(MainActivity.LISTOFALLCOCKTAILS)
+
+    private fun getLibraryCocktails(){
+        libraryViewModel.getCocktailsAPI(
+            Volley.newRequestQueue(context),
+            {
+                getCocktails ->
+                displayCocktail(MainActivity.favoriteDrinks)
+            },
+            {
+
+            }
+        )
     }
-*/
 
-/*
-    fun updateList()
-
-}*/
-
-
-
+    private fun displayCocktail(myDrinks: List<Cocktail>) {
+        viewManager = LinearLayoutManager(requireContext())
+        viewAdapter = MyAdapter(myDrinks)
+        recyclerView = favorites_recyclerview.apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            favorites_recyclerview.adapter = viewAdapter
+        }
+    }
 }
