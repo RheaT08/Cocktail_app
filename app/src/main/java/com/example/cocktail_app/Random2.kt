@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.android.volley.toolbox.Volley
 import com.example.cocktail_app.ui.LibraryMainViewModel
 import kotlinx.android.synthetic.main.activity_random2.*
+import kotlinx.android.synthetic.main.cocktail_card.*
 
 //Her skal random cocktail hentes og vises
 class Random2 : AppCompatActivity() {
@@ -47,9 +48,10 @@ class Random2 : AppCompatActivity() {
     private fun display(cocktail: List<Cocktail>){
 
         cocktail_textView.text = cocktail[0].strDrink
+        ingredienser_textview.text = cocktail[0].getIngredients().toString()
+        instruks_textview.text = cocktail[0].strInstructions
 
     }
-
 
 
 }
