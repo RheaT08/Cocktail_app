@@ -1,5 +1,6 @@
 package com.example.cocktail_app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,6 +35,11 @@ class Random : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        generator_btn.setOnClickListener {
+            val intent = Intent(context, Random2::class.java)
+            startActivity(intent);
+        }
 
     }
 

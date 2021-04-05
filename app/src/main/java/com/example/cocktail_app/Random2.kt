@@ -2,8 +2,10 @@ package com.example.cocktail_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.android.volley.toolbox.Volley
 import com.example.cocktail_app.ui.LibraryMainViewModel
+import kotlinx.android.synthetic.main.activity_random2.*
 
 //Her skal random cocktail hentes og vises
 class Random2 : AppCompatActivity() {
@@ -11,12 +13,18 @@ class Random2 : AppCompatActivity() {
 
     //MainViewModel
     private lateinit var libraryViewModel : LibraryMainViewModel
-   // private val model: LibraryMainViewModel by activityViewModels()
+
+    //private val model: LibraryMainViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_random2)
+
+        //Create viewmodel
+        libraryViewModel = ViewModelProvider(this).get(LibraryMainViewModel::class.java)
+
+        getRandomcocktail()
     }
 
 
@@ -28,7 +36,7 @@ class Random2 : AppCompatActivity() {
             //IF Kall is successfull, get Cocktails.
             { getCocktails ->
                 //displayCocktails(getCocktails.cocktailList)
-
+                display(getCocktails.cocktailList)
             },
             {
                 //Noe gikk galt...
@@ -36,9 +44,9 @@ class Random2 : AppCompatActivity() {
         )
     }
 
-    private fun display(){
+    private fun display(cocktail: List<Cocktail>){
 
-
+        cocktail_textView.text = cocktail[0].strDrink
 
     }
 

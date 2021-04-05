@@ -6,48 +6,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/cocktail_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cocktail_imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/cocktail_imageView"
-        android:layout_width="190dp"
-        android:layout_height="202dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/martini" />
-
-    <TextView
-        android:layout_width="3dp"
-        android:layout_height="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
-        app:layout_constraintStart_toEndOf="@+id/cocktail_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/cocktail_textView"
-        app:layout_constraintVertical_bias="0.077" />
-
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="396dp"
-        android:layout_height="483dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cocktail_imageView">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/instruks_textview"
+            android:id="@+id/cocktail_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/cocktail_imageView"
+                android:layout_width="144dp"
+                android:layout_height="164dp"
+                app:srcCompat="@drawable/martini" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="3dp"
+                    android:layout_height="18dp"
+                    android:text="ingrendienser" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="396dp"
+            android:layout_height="483dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/instruks_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </LinearLayout>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
