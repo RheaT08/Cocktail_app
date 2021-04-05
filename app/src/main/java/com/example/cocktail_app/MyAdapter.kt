@@ -39,13 +39,14 @@ class MyAdapter(private var cocktailDataset: List<Cocktail>): RecyclerView.Adapt
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        //TODO: Drinkname, ingrediens + measurements, instrictions, picture.
+        //TODO: Drinkname, ingrediens + measurements, instructions, picture.
 
         //cocktail_names
         viewHolder.name_textview.text = cocktailDataset[position].strDrink
         viewHolder.ingrediens_textview.text = cocktailDataset[position].getIngredients().toString()
         viewHolder.instruction_textview.text = cocktailDataset[position].strInstructions
-        viewHolder.imageCocktail.setImageURI(Uri.parse("https://www.thecocktaildb.com/images/media/drink/vyxwut1468875960"))
+        //viewHolder.imageCocktail.setImageURI()
+        //cocktailDataset[position].strDrinkThumb
         //viewHolder.instruction_textview.text = cocktailDataset[position].instructions
     }
 
