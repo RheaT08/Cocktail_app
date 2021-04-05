@@ -36,6 +36,7 @@
                 android:id="@+id/cocktail_imageView"
                 android:layout_width="144dp"
                 android:layout_height="164dp"
+                android:paddingStart="30dp"
                 app:srcCompat="@drawable/martini" />
 
             <LinearLayout
@@ -45,9 +46,9 @@
 
                 <TextView
                     android:id="@+id/ingredienser_textview"
-                    android:paddingStart="20dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp" />
             </LinearLayout>
 
         </LinearLayout>
