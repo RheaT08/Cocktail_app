@@ -24,9 +24,6 @@ class Favorites : Fragment() {
     private lateinit var libraryViewModel: LibraryMainViewModel
     private val model: LibraryMainViewModel by activityViewModels()
 
-
-
-
     companion object {
         fun newInstance() = Favorites()
     }
@@ -37,8 +34,6 @@ class Favorites : Fragment() {
     ): View? {
         libraryViewModel = ViewModelProvider(this).get(LibraryMainViewModel::class.java)
         return inflater.inflate(R.layout.fragment_favorites, container, false)
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -55,7 +55,7 @@ class MyAdapter(private var cocktailDataset: List<Cocktail>): RecyclerView.Adapt
         viewHolder.heartIcon_imageView.setOnClickListener {
             var favorite = cocktailDataset[position]
             MainActivity.favoriteDrinks.add(favorite)
-            viewHolder.heartIcon_imageView.setBackgroundResource(R.drawable.favorite)
+            viewHolder.heartIcon_imageView.setImageResource(R.drawable.favorite)
         }
 
     }
