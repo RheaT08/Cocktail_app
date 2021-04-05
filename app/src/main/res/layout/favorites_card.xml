@@ -20,7 +20,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/cocktail_Imageview"
+            android:id="@+id/favorite_Imageview"
             android:layout_width="91dp"
             android:layout_height="107dp"
             android:layout_weight="1"
@@ -30,26 +30,27 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
             card_view:layout_constraintVertical_bias="0.06"
-            card_view:srcCompat="@drawable/martini" />
+            card_view:srcCompat="@drawable/martini"
+            android:contentDescription="@string/cocktail_image" />
 
         <TextView
-            android:id="@+id/name_textview"
+            android:id="@+id/favoriteName_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="sans-serif-black"
             card_view:layout_constraintBottom_toTopOf="@+id/linearLayout"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/cocktail_Imageview"
+            card_view:layout_constraintStart_toEndOf="@+id/favorite_Imageview"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/outlinedHeart_imageView"
+            android:id="@+id/heart_imageView"
             android:layout_width="wrap_content"
             card_view:layout_constraintTop_toTopOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             android:layout_height="wrap_content"
-            card_view:srcCompat="@drawable/favorite_border" />
+            card_view:srcCompat="@drawable/favorite" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -58,11 +59,11 @@
             android:orientation="vertical"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/cocktail_Imageview"
+            card_view:layout_constraintStart_toEndOf="@+id/favorite_Imageview"
             card_view:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/ingrediens_textview"
+                android:id="@+id/favoriteIngredients_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -71,7 +72,7 @@
                 android:paddingBottom="15dp" />
 
             <TextView
-                android:id="@+id/instruction_textview"
+                android:id="@+id/favoriteInstruction_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">Cocktail_app</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main">Cocktails</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_favorites">My Drinks</string>
+    <string name="title_activity_main">Cocktail App</string>
+    <string name="cocktail_icon">Cocktail Icon</string>
+    <string name="cocktail_image">Image of drink</string>
+
 </resources>

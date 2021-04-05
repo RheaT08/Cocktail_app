@@ -7,20 +7,71 @@
     android:layout_height="match_parent">
 
 
-    <ScrollView
-        android:id="@+id/favorites_scrollview"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="650dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/topFavorite_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/favorites_recyclerview"
+            <ImageView
+                android:id="@+id/cocktail_imageView"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/input_LinearLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="5dp"
+                android:contentDescription="@string/cocktail_icon"
+                app:srcCompat="@drawable/martini" />
+
+            <TextView
+                android:id="@+id/h1_favorites"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/input_LinearLayout"
+                android:layout_toEndOf="@id/cocktail_imageView"
+                android:fontFamily="@font/roboto_bold_italic"
+                android:text="@string/title_favorites"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+
+            <RelativeLayout
+                android:id="@+id/input_LinearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="720dp" />
-        </LinearLayout>
-    </ScrollView>
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/favorites_edittext"
+                    android:layout_width="300dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@drawable/rounded_corners"
+                    android:drawableEnd="@drawable/search_icon"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:paddingEnd="10dp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favorites_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
