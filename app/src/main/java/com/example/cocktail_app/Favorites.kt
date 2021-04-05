@@ -27,7 +27,7 @@ class Favorites : Fragment() {
     //LIM INN LIST OF COCKTAILS I LINJE 31
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        myAdapter = MyAdapter(listOf())
+        myAdapter = MyAdapter(requireContext(),listOf())
         favorites_recyclerview.adapter = myAdapter
         favorites_recyclerview.layoutManager = LinearLayoutManager(activity)
     }

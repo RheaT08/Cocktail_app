@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -76,7 +75,7 @@ class Library : Fragment() {
 
         val cocktailsList = listOf<String>("Martini","Gintonic","asd","asd","liuasd","lasduo","lol")
         viewManager = LinearLayoutManager(requireContext())
-        viewAdapter = MyAdapter(cocktails)  //oppretter en objekt av MyAdapter klassen min. Parameter en mutablelist.
+        viewAdapter = MyAdapter(requireContext(),cocktails)  //oppretter en objekt av MyAdapter klassen min. Parameter en mutablelist.
 
 
         recyclerView = cocktail_recyclerview.apply {
