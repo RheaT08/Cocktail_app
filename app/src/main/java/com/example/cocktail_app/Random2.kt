@@ -25,7 +25,6 @@ class Random2 : AppCompatActivity() {
 
         //Create viewmodel
         libraryViewModel = ViewModelProvider(this).get(LibraryMainViewModel::class.java)
-
         getRandomcocktail()
     }
 

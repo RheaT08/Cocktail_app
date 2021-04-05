@@ -10,7 +10,12 @@
         android:id="@+id/generator_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/orange_theme"
+        android:backgroundTint="@color/orange_theme"
         android:text="generate drink"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="#039BE5"
+        android:textColorHint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +25,11 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dices" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
