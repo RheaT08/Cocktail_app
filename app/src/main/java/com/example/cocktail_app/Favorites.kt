@@ -38,22 +38,9 @@ class Favorites : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getLibraryCocktails()
+        displayCocktail(MainActivity.favoriteDrinks)
     }
 
-
-    private fun getLibraryCocktails(){
-        libraryViewModel.getCocktailsAPI(
-            Volley.newRequestQueue(context),
-            {
-                getCocktails ->
-                displayCocktail(MainActivity.favoriteDrinks)
-            },
-            {
-
-            }
-        )
-    }
 
     private fun displayCocktail(myDrinks: List<Cocktail>) {
         viewManager = LinearLayoutManager(requireContext())

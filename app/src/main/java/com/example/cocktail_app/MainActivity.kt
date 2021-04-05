@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 class MainActivity : AppCompatActivity() {
 
     companion object{
-        val favoriteID = mutableListOf<String>()
         val favoriteDrinks = mutableListOf<Cocktail>()
     }
 
